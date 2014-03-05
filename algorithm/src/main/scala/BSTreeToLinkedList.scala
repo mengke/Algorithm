@@ -38,8 +38,7 @@ import scala.annotation.tailrec
  *   BSTreeNode *m_pRight; // right child of node
  * };
  */
-object BSTreeToLinkedList extends App {
-  val treeRoot = BSTreeNode(10, BSTreeNode(6, BSTreeNode(4), BSTreeNode(8)), BSTreeNode(14, BSTreeNode(12), BSTreeNode(16)))
+object BSTreeToLinkedList {
 
   def rockIt(node: BSTreeNode): (BSTreeNode, BSTreeNode) = {
     if (node == null) {
@@ -65,31 +64,6 @@ object BSTreeToLinkedList extends App {
       }
     }
   }
-
-  @tailrec
-  def printRight(node: BSTreeNode): Unit = {
-    if (node != null) {
-      print(node.value + " ")
-      if (node.right != null) {
-        printRight(node.right)
-      }
-    }
-  }
-
-  @tailrec
-  def printLeft(node: BSTreeNode): Unit = {
-    if (node != null) {
-      print(node.value + " ")
-      if (node.left != null) {
-        printLeft(node.left)
-      }
-    }
-  }
-
-  val (head, tail) = rockIt(treeRoot)
-  printRight(head)
-  println()
-  printLeft(tail)
 }
 
 abstract class Node(value: Int)
